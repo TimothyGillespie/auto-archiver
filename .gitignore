@@ -37,3 +37,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+.angular
+
+
+# Secrets
+
+.env
+.env.prod
+.env.local
+youtube_api.json
+client_secret.json

@@ -1,0 +1,99 @@
+{
+  "projectType": "application",
+  "root": "apps/browser-plugin",
+  "sourceRoot": "apps/browser-plugin/src",
+  "prefix": "auto-archiver",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/browser-plugin",
+        "index": "apps/browser-plugin/src/index.html",
+        "main": "apps/browser-plugin/src/main.ts",
+        "polyfills": "apps/browser-plugin/src/polyfills.ts",
+        "tsConfig": "apps/browser-plugin/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/browser-plugin/src/favicon.ico",
+          "apps/browser-plugin/src/assets"
+        ],
+        "styles": [
+          "apps/browser-plugin/src/styles.scss",
+          "node_modules/primeng/resources/themes/saga-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css",
+          "node_modules/primeicons/primeicons.css"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/browser-plugin/src/environments/environment.ts",
+              "with": "apps/browser-plugin/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "browser-plugin:build:production"
+        },
+        "development": {
+          "browserTarget": "browser-plugin:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "browser-plugin:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/browser-plugin/src/**/*.ts",
+          "apps/browser-plugin/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/browser-plugin"],
+      "options": {
+        "jestConfig": "apps/browser-plugin/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

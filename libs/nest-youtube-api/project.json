@@ -1,0 +1,23 @@
+{
+    "root": "libs/nest-youtube-api",
+    "sourceRoot": "libs/nest-youtube-api/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/nest-youtube-api/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/nest-youtube-api"],
+            "options": {
+                "jestConfig": "libs/nest-youtube-api/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}

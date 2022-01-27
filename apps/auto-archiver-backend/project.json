@@ -1,0 +1,52 @@
+{
+  "root": "apps/auto-archiver-backend",
+  "sourceRoot": "apps/auto-archiver-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/auto-archiver-backend",
+        "main": "apps/auto-archiver-backend/src/main.ts",
+        "tsConfig": "apps/auto-archiver-backend/tsconfig.app.json",
+        "assets": ["apps/auto-archiver-backend/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/auto-archiver-backend/src/environments/environment.ts",
+              "with": "apps/auto-archiver-backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "auto-archiver-backend:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/auto-archiver-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/auto-archiver-backend"],
+      "options": {
+        "jestConfig": "apps/auto-archiver-backend/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,4 +1,9 @@
 {
-  "version": 2,
-  "projects": {}
+    "version": 2,
+    "projects": {
+        "auto-archiver-backend": "apps/auto-archiver-backend",
+        "browser-plugin": "apps/browser-plugin",
+        "browser-plugin-e2e": "apps/browser-plugin-e2e",
+        "nest-youtube-api": "libs/nest-youtube-api"
+    }
 }

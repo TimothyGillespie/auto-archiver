@@ -1,0 +1,28 @@
+{
+  "root": "apps/browser-plugin-e2e",
+  "sourceRoot": "apps/browser-plugin-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/browser-plugin-e2e/cypress.json",
+        "devServerTarget": "browser-plugin:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "browser-plugin:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/browser-plugin-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["browser-plugin"]
+}
