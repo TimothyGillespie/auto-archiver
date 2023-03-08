@@ -20,7 +20,7 @@
     "@angular/router": "~13.1.0",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.1.6",
-    "@nestjs/core": "^8.0.0",
+    "@nestjs/core": "^9.0.5",
     "@nestjs/platform-express": "^8.0.0",
     "@nrwl/angular": "^13.4.6",
     "google-auth-library": "^7.11.0",
